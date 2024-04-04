@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.17)  21 MAR 2024 17:34
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.17)  3 APR 2024 21:38
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**as1.tex
-(./as1.tex
+**as2.tex
+(./as2.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
 (d:/texlive/2023/texmf-dist/tex/latex/base/article.cls
@@ -215,7 +215,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@every@listing=\toks22
 \c@listing=\count292
 )
-runsystem(if not exist _minted-as1 mkdir _minted-as1)...executed.
+runsystem(if not exist _minted-as2 mkdir _minted-as2)...executed.
 
 
 (d:/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
@@ -419,9 +419,9 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \TX@ftn=\toks26
 )
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > as
-1.aex <nul: /p x=^%~$PATH:i>> as1.aex)...executed.
+2.aex <nul: /p x=^%~$PATH:i>> as2.aex)...executed.
 
-runsystem(del as1.aex)...executed.
+runsystem(del as2.aex)...executed.
 
 
 (d:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
@@ -431,8 +431,8 @@ File: l3backend-xetex.def 2023-11-09 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count319
 \g__pdf_backend_annotation_int=\count320
 \g__pdf_backend_link_int=\count321
-) (./as1.aux)
-\openout1 = `as1.aux'.
+) (./as2.aux)
+\openout1 = `as2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
@@ -496,9 +496,9 @@ LaTeX Font Info:    ... okay on input line 22.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 22.
-(./as1.out) (./as1.out)
+(./as2.out) (./as2.out)
 \@outlinefile=\write5
-\openout5 = `as1.out'.
+\openout5 = `as2.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 28.
@@ -510,50 +510,25 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 29.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 29.
-File: network.png Graphic file (type bmp)
-<network.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
-
- []
-
-[1
-
-]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 42.
-File: pagerank.png Graphic file (type bmp)
-<pagerank.png>
- [2]
-File: relationship of pagerank and degree.png Graphic file (type bmp)
-<relationship of pagerank and degree.png>
- [3]
-File: spamfarm.png Graphic file (type bmp)
-<spamfarm.png>
-File: Relationship of Spam Number and Pagerank of Target Page.png Graphic file 
-(type bmp)
-<Relationship of Spam Number and Pagerank of Target Page.png>
- [4]
-File: trustrank.png Graphic file (type bmp)
-<trustrank.png>
- [5]
-File: spammass.png Graphic file (type bmp)
-<spammass.png>
- [6] [7] (./as1.aux)
+put line 52.
+ [1
+
+] [2] (./as2.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
  ***********
-Package rerunfilecheck Info: File `as1.out' has not changed.
+Package rerunfilecheck Info: File `as2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13923 strings out of 474930
- 236360 string characters out of 5765282
- 1927189 words of memory out of 5000000
- 35743 multiletter control sequences out of 15000+600000
+ 13844 strings out of 474930
+ 234365 string characters out of 5765282
+ 1936189 words of memory out of 5000000
+ 35672 multiletter control sequences out of 15000+600000
  561221 words of font info for 53 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 75i,6n,81p,334b,412s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,81p,540b,356s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on as1.pdf (7 pages).
+Output written on as2.pdf (2 pages).

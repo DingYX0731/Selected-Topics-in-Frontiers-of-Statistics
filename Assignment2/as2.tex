@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+\geometry{
+	textheight=9in,
+	textwidth=6in,
+	top=1in,
+	headheight=12pt,
+	headsep=25pt,
+	footskip=30pt
+}
+
+\begin{document}
+	
+	\title{Selected Topics in Frontiers of Statistics Second Assignment}
+	\author{12111620 Yixuan Ding}
+	\date{\today}
+	\maketitle
+	\section*{Problem Setting}
+	This assignment is about to simulate a social network and clarify the "small world phenomenon". The simulated network follows the paradigm of Watts and Strogatz. I only focus on 1-dimension case, and constructed a chain-like model. After constructing the network, I utilized decentralized algorithm to calculate the average path length for single message passing. By changing the clustering exponent $r$, I can find the best value of $r$ such that the message passing efficiency is the best within the network.
+	
+	\section*{Network Construction}
+	The network is constructed to a chain with a number of nodes which is denoted as message passing candidates. The network is rich in local connection, meaning every node is connected with its neighbors. Also, the nodes have a few long-range connection with some other nodes, simulating long-distance connection for two people. For the probability of connecting to long-distance node, the definition is:\\
+	For some value $r$ and two nodes $u$ and $v$, the probability of the two nodes connected with each other is:
+	$$P = \frac{1}{d(u, v)^{r}}$$
+	Notice that the probability of connected to neighbor is ignored.\\
+	For a single node, after I gaining the probability of connecting with other nodes, then after standardization. the probability can be used for sample some long-range connecting nodes.\\
+	Besides, a value $q$ will be given, which is the expectation of number of long-range nodes for a single node, determining the sparsity of the network.\\
+	A more specific network construction algorithm is showed in Appendix.
+	
+	\section*{Message Passing Path Calculation}
+	This section describe a decentralized algorithm that is utilized for simulating a message passing from one node to another node. There are some basic rule for each message passer $u$:
+	\begin{itemize}
+		\item $u$ has the knowledge of the set of its local contact among all nodes
+		\item $u$ knows its own location, and the location of target $t$.
+		\item $u$ knows the long-range contact nodes' location and their position relationship with the target nodes $t$.
+	\end{itemize}
+	Based on the setting, we can utilize the algorithm and calculate the average efficiency of message passing given a specific social network. Also, the algorithm implementation detail is shown in Appendix.
+	
+	
+	\section*{Appendix}
+	\begin{algorithm}[H]
+		\caption{Network Construction}\label{alg:network}
+		\begin{algorithmic}
+			\Require n: number of nodes
+			\Require q: expectation of number of long-range connection
+			\Require r: clustering exponent
+			\State Use network x generate a chain graph
+			\State Connect local nodes
+			\For{node1 in G.nodes()}
+				\State Continue the loop if the node already have enough long-range connection
+				\For{node2 in G.nodes()}
+					\State Calculate distance between node1 and node2
+					\State Calculate connecting probability
+				\EndFor
+				\State Normalize the probability
+				\State Append the last value of probability list to former
+				\Comment{Gaining a prob list adds up to 1}
+				\State Random a number, judge which node to connect
+			\EndFor
+		\end{algorithmic}
+	\end{algorithm}
+	
+	\begin{algorithm}[H]
+		\caption{Decentralized Algorithm}\label{alg:algorithm}
+		\begin{algorithmic}
+			\Require G: specific graph
+			\Require n: number of nodes
+			\For{node1 in G.nodes()}
+				\For{node2 in G.nodes()}
+					\State Define \textit{now\_node} as node1
+					\While{\textit{now\_node} is not equal node2}
+						\State Loop the neighbors of \textit{now\_node}, find the neighbor that closest to node2
+						\State Accumulate the path length
+					\EndWhile
+				\EndFor
+			\EndFor
+			\State Calculate the average message passing length.
+		\end{algorithmic}
+	\end{algorithm}
+	
+	More relevant detailed information you can find in: 
+	\href{https://github.com/DingYX0731/Selected-Topics-in-Frontiers-of-Statistics}{\textbf{Github Repository}}
+	
+	
+\end{document}
